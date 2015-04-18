@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="./scripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="./scripts/myScript.js"></script>
+<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./styles/style.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+<style type="text/css">
+#tabs{
+	
+	position: relative;
+	height: 500px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px 5px black;
+	font-family:Lucida Sans Unicode;
+	
+}
+              
+
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#tabs").tabs();
+	
+	
+})
+	
+</script>
+</head>
+<body>
+<h1>Online Exam Portal</h1>
+<div id="tabs">
+   
+  <ul>
+    <li><a href="#tabs-1">HTML5</a></li>
+    <li><a href="#tabs-2">Javascript</a></li>
+    <li><a href="#tabs-3">jQuery</a></li>
+  </ul>
+  <div id="tabs-1" >
+    
+    <ul id="tnc">
+    	<li>This exam contains 25 questions.</li>
+    	<li>Each question is of multiple choice answer type with single or multiple correct answers.</li>
+    	<li>Each question carries 1 mark.</li>
+    	<li>Duration: 30min</li>
+    	<li>No negative marking.</li>
+    </ul>
+    <div style="text-align: center;">
+    <a class="button" id="takeTest" onclick="valdiateTNC()" href="htmlTest.html">Take Test</a>
+    </div>
+  </div>
+  <div id="tabs-2">
+    <ul id="tnc">
+    	<li>This exam contains 15 questions.</li>
+    	<li>Each question is of multiple choice answer type with single or multiple correct answers.</li>
+    	<li>Each question carries 1 mark.</li>
+    	<li>Duration: 30min</li>
+    	<li>No negative marking.</li>
+    </ul>
+    <div style="text-align: center;">
+    <a class="button" id="takeTest" onclick="valdiateTNC()" href="#">Take Test</a>
+    </div>
+  </div>
+  <div id="tabs-3">
+    <ul id="tnc">
+    	<li>This exam contains 20 questions.</li>
+    	<li>Each question is of multiple choice answer type with single or multiple correct answers.</li>
+    	<li>Each question carries 1 mark.</li>
+    	<li>Duration: 30min</li>
+    	<li>No negative marking.</li>
+    </ul>
+    <div style="text-align: center;">
+    <a class="button" id="takeTest" onclick="valdiateTNC()" href="#">Take Test</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

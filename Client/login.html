@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="./scripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="./scripts/myScript.js"></script>
+<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript" src="./scripts/jquery.simplePagination.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./styles/style.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="./styles/simplePagination.css">
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	
+	$("#loginForm").submit(function(){
+		
+		    var flag=false;
+			//var email=document.getElementById("email").value();
+			//var pwd=document.getElementById("pwd").value();
+			var email=$(':input#email').val();
+			var psswd=$(':input#pwd').val();
+			
+			var original_email,original_password;
+			
+			$.ajax({
+				type: "GET",
+				url: "http://localhost:8080/OnlineExamService/exam/resources/credentials",
+				dataType: "xml",
+				async: false,
+				success: function(result) {
+					$(result).find('student').each(function(){
+						if((email==$(this).children('email').text()) && (psswd==$(this).children('password').text()))
+							flag=true;
+					});
+					
+					
+		        },
+		        error: function (xhr, ajaxOptions, thrownError){
+		            
+		            alert(xhr.status);
+		            alert(thrownError);
+		        }
+
+
+				});
+			
+			return flag;
+		
+		});
+
+	
+})
+
+</script>
+</head>
+<body>
+<form id="loginForm" action="index.html">
+	<table>
+		<tr><td>Login ID</td><td><input type="email" id="email" name="email"/></td></tr>
+		<tr><td>Password:</td><td><input type="password" id="pwd" name="password"/></td></tr>
+		<tr><td colspan="1" align="right"><input type="submit" id="studentLogin" value="Login" class="button"/></td></tr>
+	</table>
+</form>
+</body>
+</html>
